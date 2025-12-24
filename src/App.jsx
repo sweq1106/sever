@@ -1,31 +1,21 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import './App.css'
+import Mainpage from './pages/Mainpage';
 import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import CatalogPage from './pages/CatalogPage';
-import CartPage from './pages/CartPage';
-import LoginPage from './pages/LoginPage';
-import './App.css';
+import Basket from './pages/Basket';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-      {/* Header будет показываться на всех страницах */}
-      <Header />
-      <main>
-        <Routes>
-          {/* Каждый Route связывает URL с компонентом страницы */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          {/* Сюда вы позже добавите маршруты для других страниц */}
-        </Routes>
-      </main>
-      {/* Footer также будет на всех страницах */}
-      <Footer />
-    </Router>
-  );
+    <>
+     <Header/>
+      <Routes>
+        <Route path="/" element={<Mainpage/>} />
+        <Route path="/basket" element={<Basket/>} />
+      </Routes>
+      <Footer/>
+    </>
+  )
 }
 
-export default App;
+export default App
